@@ -10,3 +10,5 @@ https://github.com/JithinGeorge10/turbo-repo
 Demo repo for graphql
 https://github.com/JithinGeorge10/graphql-demo
 
+Demo repo for tsed - my sql - typeORM -vitest
+https://github.com/JithinGeorge10/tsed-mysql.git
