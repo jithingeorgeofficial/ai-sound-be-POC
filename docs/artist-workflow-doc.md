@@ -102,6 +102,12 @@ async function processWebhookData(webhookData) {
 ✅ **Fully Automated** – No manual intervention needed  
 ✅ **Real-time** – Immediate sync  
 ✅ **Reliable** – Uses a queue system  
+Bull Queue is a Redis-based queue for Node.js that provides robust job processing capabilities with advanced features for handling background tasks.
+Performance: Non-blocking job processing
+Reliability: Jobs don't get lost even if server crashes
+Monitoring: Built-in dashboard for queue monitoring
+Flexibility: Rich API for job management
+Redis Integration: Leverages Redis for persistence and speed
 ✅ **Scalable** – Can process 30 concurrent jobs  
 
 ---
