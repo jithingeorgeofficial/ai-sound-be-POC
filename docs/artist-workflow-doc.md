@@ -14,7 +14,7 @@ routes.post(
   authorizeRequest,
   webhookController.synchronize7DigitalData
 );
-``` 
+```
 
 ---
 
@@ -34,8 +34,18 @@ export const synchronize7DigitalData = async (req, res, next) => {
 };
 ```
 
-### B) Queue Processing:
+### B) Queue Initialization & Processing:
 ```js
+import Bull from 'bull';
+
+const queue = new Bull('webhookQueue_1', {
+  redis: {
+    host: 'redis-18476.fcrce180.us-east-1-1.ec2.redns.redis-cloud.com',
+    port: 18476,
+    password: 'nCEvvQeaONdJVHzzSfdZyflGJyIRyTFf'
+  }
+});
+
 queue.process(30, async (job) => {
   console.log('Processing Webhook Data!');
   const { webhookData } = job.data;
@@ -43,8 +53,16 @@ queue.process(30, async (job) => {
   if (webhookData.takedown) {
     await updateTakeDownRelease(webhookData.id);
   } else {
-    await processWebhookData(webhookData);  // Create or update artist
+    await processWebhookData(webhookData);
   }
+});
+
+queue.on('connect', () => {
+  console.log('Connected to Redis');
+});
+
+queue.on('failed', (job, error) => {
+  console.error(`Job ${job.id} failed with error: ${error.message}`);
 });
 ```
 
