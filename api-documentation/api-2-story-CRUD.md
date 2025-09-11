@@ -1,3 +1,4 @@
+#AUC-82
 # Story CRUD API Documentation
 
 ## Overview
@@ -52,48 +53,55 @@ All story endpoints are prefixed with `/story`
 
 **Example Response:**
 ```json
-[
-  {
-    "id": "507f1f77bcf86cd799439011",
-    "userId": "user123",
-    "storyType": "image",
-    "mediaId": "507f1f77bcf86cd799439012",
-    "metadata": {
-      "location": {
-        "name": "New York",
-        "lat": 40.7128,
-        "lng": -74.0060
-      },
-      "hashtags": ["#travel", "#nyc"],
-      "mentions": ["@friend1", "@friend2"],
-      "privacy": "friends-only",
-      "expireAt": "2024-01-15T10:30:00.000Z",
-      "music": {
-        "trackId": "track123",
-        "title": "Song Title",
-        "artist": "Artist Name",
-        "startTime": 30,
-        "duration": 15
-      }
-    },
-    "overlays": [
-      {
-        "type": "text",
-        "value": "Hello World!",
-        "position": { "x": 100, "y": 200 },
-        "scale": 1.0,
-        "rotation": 0,
-        "font": "Arial",
-        "color": "#FFFFFF",
-        "backgroundColor": "#000000",
-        "size": 16
-      }
+{
+    "stories": [
+        {
+            "userId": "0198e165-87c7-715f-9056-a65d1d0bdb6d",
+            "storyType": "video",
+            "mediaId": "66e9f0b3a4d2c1f5e7a90123",
+            "overlays": [
+                {
+                    "type": "text",
+                    "value": "Hello World!",
+                    "stickerId": null,
+                    "position": {
+                        "x": 120,
+                        "y": 200
+                    },
+                    "scale": 1,
+                    "rotation": 0,
+                    "font": "Inter",
+                    "color": "#FFFFFF",
+                    "backgroundColor": "#000000",
+                    "size": 18
+                },
+                {
+                    "type": "sticker",
+                    "value": null,
+                    "stickerId": "stkr_fire",
+                    "position": {
+                        "x": 40,
+                        "y": 90
+                    },
+                    "scale": 1.2,
+                    "rotation": 25,
+                    "font": null,
+                    "color": null,
+                    "backgroundColor": null,
+                    "size": null
+                }
+            ],
+            "viewersCount": 0
+        }
     ],
-    "viewersCount": 0,
-    "createdAt": "2024-01-14T10:30:00.000Z",
-    "isDeleted": false
-  }
-]
+    "users": {
+        "0198e165-87c7-715f-9056-a65d1d0bdb6d": {
+            "id": "0198e165-87c7-715f-9056-a65d1d0bdb6d",
+            "name": null,
+            "avatar": null
+        }
+    }
+}
 ```
 
 ---
